@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="057485e4-1c76-4b72-961d-d72ba96e90b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dengi-rb.of.by.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dengi-rb.of.by.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581775314676</updated>
       <workItem from="1581775315957" duration="4255000" />
-      <workItem from="1592866882687" duration="429000" />
+      <workItem from="1592866882687" duration="784000" />
     </task>
     <servers />
   </component>

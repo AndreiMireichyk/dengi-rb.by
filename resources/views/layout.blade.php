@@ -334,8 +334,9 @@
     const form = new Vue({
         el: '#exampleModal',
         data: {
+            loading: false,
             fields: {
-                loading: false,
+
                 name: "",
                 phone: "",
                 sum: "",
@@ -349,6 +350,7 @@
             send: function () {
 
                 let vm = this;
+
                 if (this.validation()) {
                     return false;
                 }
