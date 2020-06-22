@@ -76,7 +76,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="javascript:void(0)" class="btn btn-outline-green" @click="send()">Отправить</a>
+                <a href="javascript:void(0)" class="btn btn-outline-green" v-if="loading">Загрузка</a>
+                <a href="javascript:void(0)" class="btn btn-outline-green" @click="send()" v-else>Отправить</a>
             </div>
         </div>
     </div>
@@ -105,12 +106,12 @@
         <div class="nav_bar__toggler"><i class="icon icon-menu2"></i></div>
         <div class="header__contacts">
             <div class="header__phone">
-                
+
                     @if($show_phone)
 						<i class="icon icon-phone-square"> </i><a href="tel:‎‎+375292298585" class="btn btn-phone-header" onclick="ym('{{$subdomain->ya_id}}', 'reachGoal', 'TELEPHONE'); ga('send', 'event', 'click', 'telephone', 'telephone'); return true;">
 						+375 29 <span class="phone_prefix">‎229-85-85</span></a>
 					@endif
-					
+
             </div>
         </div>
     </div>
@@ -334,6 +335,7 @@
         el: '#exampleModal',
         data: {
             fields: {
+                loading: false,
                 name: "",
                 phone: "",
                 sum: "",
@@ -346,9 +348,14 @@
         methods: {
             send: function () {
 
+                let vm = this;
                 if (this.validation()) {
                     return false;
                 }
+
+                if(this.loading) return  false;
+
+                this.loading = true;
 
                 axios.post('/api/email', this.fields)
                     .then(function (res) {
@@ -357,9 +364,11 @@
                             ym('{{$subdomain->ya_id}}', 'reachGoal', 'ZAYAVKA');
                             ga('send', 'event', 'zayavka', 'zayavka', 'zayavka');
                             alert('Запрос отправлен, ожидайте! В ближайшее время мы с вами свяжемся.');
+                            vm.loading = false;
                         }
                     })
                     .catch(function () {
+                        vm.loading = false;
                         alert('Ошибка попробуйте позже');
                     });
             },
