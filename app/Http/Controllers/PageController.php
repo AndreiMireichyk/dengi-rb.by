@@ -23,7 +23,7 @@ class PageController extends Controller
     {
 		$start  = Carbon::now()->setTime(8, 0, 0);
         $end  = Carbon::now()->setTime(20, 0, 0);
-        $show_phone = Carbon::now()->between($start, $end);
+        $show_phone = env('APP_DEBUG') ? true : Carbon::now()->between($start, $end);
         $subdomain = Subdomain::where('slug', 'minsk')->firstOrfail();
         return view('layout', ['subdomain' => $subdomain, 'show_phone'=>$show_phone]);
     }
