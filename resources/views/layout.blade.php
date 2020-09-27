@@ -108,8 +108,8 @@
             <div class="header__phone">
 
                     @if($show_phone)
-						<i class="icon icon-phone-square"> </i><a href="tel:‎‎+375292298585" class="btn btn-phone-header" onclick="ym('{{$subdomain->ya_id}}', 'reachGoal', 'TELEPHONE'); ga('send', 'event', 'click', 'telephone', 'telephone'); return true;">
-						+375 29 <span class="phone_prefix">‎229-85-85</span></a>
+						<i class="icon icon-phone-square"> </i><a href="tel:‎‎{{$subdomain->phone['full'] ?? ''}}" class="btn btn-phone-header" onclick="ym('{{$subdomain->ya_id}}', 'reachGoal', 'TELEPHONE'); ga('send', 'event', 'click', 'telephone', 'telephone'); return true;">
+                        {{$subdomain->phone['code'] ?? ''}}  <span class="phone_prefix"> {{$subdomain->phone['number'] ?? ''}}</span></a>
 					@endif
 
             </div>
@@ -124,9 +124,9 @@
         <div class="home__wrap">
             <div class="home__info">
                 <div class="home__contacts">
-                    <a href="tel:+375292298585" onclick="ym('{{$subdomain->ya_id}}', 'reachGoal', 'TELEPHONE'); ga('send', 'event', 'click', 'telephone', 'telephone'); return true;" class="home__contacts">
+                    <a href="tel:‎‎{{$subdomain->phone['full'] ?? ''}}" onclick="ym('{{$subdomain->ya_id}}', 'reachGoal', 'TELEPHONE'); ga('send', 'event', 'click', 'telephone', 'telephone'); return true;" class="home__contacts">
 					@if($show_phone)
-						+375 29 229-85-85
+						{{$subdomain->phone['code'] ?? ''}} {{$subdomain->phone['number'] ?? ''}}
 					@endif
 					</a>
                 </div>
@@ -300,7 +300,7 @@
                 <div class="contacts__phone">
 					@if($show_phone)
 						<i class="icon icon-phone-square"></i>
-						+375 29 229-85-85
+                        {{$subdomain->phone['code'] ?? ''}} {{$subdomain->phone['number'] ?? ''}}
 					@endif
 				</div>
                 <div class="contacts__adress"><i class="icon icon-compas1"></i>Партизанский просп., 150А,<br> Минск (ТЦ Момо)</div>
